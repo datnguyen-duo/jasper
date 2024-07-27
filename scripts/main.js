@@ -350,7 +350,7 @@ gsap.registerPlugin(ScrollTrigger);
     }
 
     if (loadHeadline) {
-      headlineTriggers.forEach((headline) => {
+      loadHeadline.forEach((headline) => {
         var splitInner = new SplitText(headline, {
           type: "lines",
           linesClass: "line__inner",
@@ -367,7 +367,7 @@ gsap.registerPlugin(ScrollTrigger);
           },
         });
         tl.from(splitInner.lines, {
-          duration: 1.5,
+          duration: 1.7,
           yPercent: 100,
           ease: "expo.inOut",
           stagger: 0.05,
@@ -376,7 +376,7 @@ gsap.registerPlugin(ScrollTrigger);
     }
 
     if (loadText) {
-      textTriggers.forEach((text) => {
+      loadText.forEach((text) => {
         gsap.from(text, {
           duration: 1,
           opacity: 0,
