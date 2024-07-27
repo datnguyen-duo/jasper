@@ -1,0 +1,120 @@
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+  opacity: 0;
+
+  body.init__modal & {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  form {
+    margin: auto;
+    background: var(--color-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: var(--gutter-sm);
+    text-align: center;
+    color: var(--color-light);
+    @media screen and (max-width: $breakpoint-mobile) {
+      justify-content: flex-start;
+      padding: 6rem 2rem var(--spacer-sm);
+      overflow: auto;
+    }
+    h2 {
+      margin-bottom: 4rem;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        margin-bottom: 2rem;
+      }
+    }
+    .close {
+      position: absolute;
+      width: 3em;
+      height: 3em;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:before,
+      &::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: var(--color-light);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+    .modal__logo {
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+    }
+
+    .modal__fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .modal__hh-container {
+      display: flex;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid currentColor;
+      width: 100%;
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      > * {
+        align-self: center;
+        justify-self: start;
+      }
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      width: 400px;
+    }
+    .form-response {
+      height: 1em;
+      margin-top: 0.5rem;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
