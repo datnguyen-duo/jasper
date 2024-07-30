@@ -10,6 +10,7 @@ section {
   justify-content: center;
   color: var(--color-light);
   background-color: var(--color-1);
+  overflow: hidden;
   &__image {
     position: absolute;
     display: flex;
@@ -22,6 +23,10 @@ section {
       left: 0.5rem;
       width: 15%;
       transform-origin: top left;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        width: 35%;
+      }
     }
 
     &--2 {
@@ -30,6 +35,10 @@ section {
       transform: translateY(-50%);
       transform-origin: right center;
       width: 15%;
+      @media screen and (max-width: $breakpoint-mobile) {
+        width: 35%;
+        top: 25%;
+      }
     }
     &--3 {
       bottom: 0;
@@ -38,6 +47,9 @@ section {
       transform-origin: bottom center;
       width: 100%;
       height: 100%;
+      @media screen and (max-width: $breakpoint-mobile) {
+        transform: scale(0.35);
+      }
       .overlay {
         opacity: 0;
       }
@@ -88,7 +100,10 @@ section {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    transform: translateY(100%);
+    background-color: var(--color-light);
+    @media screen and (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
     &-item {
       align-self: center;
       justify-self: center;
@@ -101,16 +116,27 @@ section {
       &:nth-child(1) {
         border-right: 1px solid var(--color-dark);
       }
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        border-right: none;
+        border-top: none;
+      }
     }
   }
 }
 
 .introduction {
   padding-bottom: 0;
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-top: 100px;
+  }
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 var(--gutter-lg);
+    @media screen and (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__content {
@@ -118,7 +144,9 @@ section {
     text-align: center;
     text-wrap: balance;
     align-self: center;
-
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding: var(--spacer) var(--gutter);
+    }
     p {
       margin: 1rem 0;
     }
@@ -127,6 +155,9 @@ section {
   &__images {
     display: grid;
     grid-template-areas: a;
+    @media screen and (max-width: $breakpoint-mobile) {
+      order: -1;
+    }
     > div {
       grid-area: a;
     }
@@ -141,15 +172,27 @@ section {
     &--2 {
       width: 70%;
       transform: translateX(-20%);
+      @media screen and (max-width: $breakpoint-mobile) {
+        transform: unset;
+        margin: 0 auto;
+      }
     }
 
     &--3 {
       width: 100%;
+      @media screen and (max-width: $breakpoint-mobile) {
+        width: 45%;
+      }
     }
 
     &--4 {
       width: 100%;
       margin-top: var(--spacer-lg);
+      @media screen and (max-width: $breakpoint-mobile) {
+        width: 70%;
+        margin-top: 2rem;
+        margin-left: auto;
+      }
     }
 
     img {
@@ -160,12 +203,15 @@ section {
 
 .residences {
   padding-bottom: 0;
+  &__title {
+    margin-bottom: 1rem;
+  }
 }
 
 .amenities {
   &__text {
     text-align: center;
-    padding: 0 var(--gutter);
+    padding: 0 var(--gutter) 2rem;
     max-width: 900px;
     margin: auto;
     text-wrap: balance;
@@ -179,7 +225,7 @@ section {
   }
 
   &__slider {
-    height: 100svh;
+    min-height: 100svh;
     padding: $nav-height 0;
     margin: 0 auto;
   }
@@ -197,11 +243,21 @@ section {
         left: 0;
         transform: scale(2.22) translate(-10%, -200%);
         transform-origin: left center;
+        @media screen and (max-width: $breakpoint-mobile) {
+          transform: scale(1.25) translate(-10%, -200%);
+        }
       }
       &.--right {
         right: 0;
         transform: scale(2.22) translate(10%, 200%);
         transform-origin: right center;
+        @media screen and (max-width: $breakpoint-mobile) {
+          transform: scale(1.25) translate(10%, 200%);
+        }
+      }
+
+      body.init__pin & {
+        opacity: 0;
       }
     }
   }
@@ -215,6 +271,7 @@ section {
     width: 100%;
     overflow: hidden;
     padding: 0 5rem;
+
     &-wrapper {
       display: flex;
       width: 100%;
@@ -225,6 +282,10 @@ section {
       transition: transform 1s ease, transform-origin 1s ease,
         opacity var(--transition-duration-ease-in-out);
       position: relative;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        min-width: 120%;
+      }
       &:not(:last-child) {
         margin-right: 1rem;
       }
@@ -255,10 +316,15 @@ section {
         height: 100%;
         object-fit: cover;
         aspect-ratio: 16 / 9;
+        @media screen and (max-width: $breakpoint-mobile) {
+          aspect-ratio: 0.7;
+        }
       }
     }
     &-pagination {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       position: absolute;
       bottom: 1rem;
@@ -283,9 +349,6 @@ section {
 .pricing {
   padding: var(--spacer) 0;
   background-color: var(--color-2);
-  @media screen and (max-width: $breakpoint-mobile) {
-    overflow-y: auto;
-  }
 
   &__pre-title {
     text-align: center;
@@ -396,17 +459,16 @@ section {
             left: 0;
             right: 0;
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             height: 100%;
             display: flex;
-
             align-items: center;
             justify-content: space-between;
             padding: 0;
             margin: 0 auto;
             .arrow {
               margin: 0;
-
+              cursor: pointer;
               &.next {
                 transform: rotate(180deg);
               }
@@ -458,16 +520,16 @@ section {
           }
 
           &:nth-child(1) {
-            color: var(--color-1);
+            color: var(--color-light);
             &:before {
-              background-color: var(--color-1);
+              background-color: var(--color-light);
             }
           }
 
           &:nth-child(2) {
-            color: var(--color-4);
+            color: var(--color-1);
             &:before {
-              background-color: var(--color-4);
+              background-color: var(--color-1);
             }
           }
         }
@@ -490,13 +552,11 @@ section {
       ul {
         margin-bottom: 2rem;
         li {
-          width: 200px;
+          width: 100px;
           text-align: center;
           position: relative;
-          // border-bottom: 1px solid rgba(var(--color-4), 0.25);
           padding: 0.5rem;
           cursor: pointer;
-          // color: rgba(var(--color-4), 0.25);
           transition: all 0.3s var(--ease-in-out);
 
           @media screen and (max-width: $breakpoint-mobile) {
@@ -508,7 +568,7 @@ section {
             bottom: -1px;
             height: 1px;
             width: 0;
-            background-color: var(--color-4);
+            background-color: var(--color-dark);
             transition: all 0.3s var(--ease-in-out);
           }
 
@@ -525,8 +585,6 @@ section {
           }
 
           &.active {
-            color: var(--color-4);
-
             &::before {
               width: 100%;
             }
@@ -579,6 +637,12 @@ section {
       gap: 0 var(--gutter-lg);
       height: 100svh;
       padding: $nav-height 0 0;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "images" "content";
+        grid-template-rows: 55% 1fr;
+      }
     }
 
     &-content {
@@ -591,6 +655,11 @@ section {
       grid-template-areas: "title" "text";
       text-align: center;
       padding-bottom: $nav-height;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        width: 100%;
+        padding: 0 2rem;
+      }
       > p {
         grid-area: title;
         align-self: end;
@@ -626,7 +695,9 @@ section {
       height: 100%;
       display: flex;
       padding-left: 20%;
-
+      @media screen and (max-width: $breakpoint-mobile) {
+        padding-left: 0;
+      }
       &:not(:first-child) {
         clip-path: inset(100% 0% 0% 0%);
         z-index: 2;
@@ -642,6 +713,11 @@ section {
           width: 45%;
           transform: translate(-35%, -50%);
           margin: auto auto auto 0;
+
+          @media screen and (max-width: $breakpoint-mobile) {
+            transform: translate(-50%, -50%);
+            left: 50%;
+          }
         }
         &:nth-child(2) {
           img {
@@ -655,8 +731,9 @@ section {
   }
 
   &__map {
-    padding-top: var(--spacer);
+    padding-top: var(--spacer-lg);
     overflow: hidden;
+    border-top: 1px solid var(--color-dark);
   }
 
   &__title {

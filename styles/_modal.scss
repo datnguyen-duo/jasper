@@ -34,7 +34,6 @@
     }
     h2 {
       margin-bottom: 4rem;
-
       @media screen and (max-width: $breakpoint-mobile) {
         margin-bottom: 2rem;
       }
@@ -77,6 +76,9 @@
       position: absolute;
       top: 0.5rem;
       left: 1.5rem;
+      @media screen and (max-width: $breakpoint-mobile) {
+        left: 1rem;
+      }
     }
 
     .modal__fields {

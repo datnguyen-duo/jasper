@@ -14,12 +14,25 @@
   text-transform: uppercase;
   color: var(--color-light);
   font-size: 14px;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color var(--transition-duration-ease-in-out),
+    color var(--transition-duration-ease-in-out);
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    grid-template-areas:
+      "logo button toggle"
+      "links links links";
+    grid-template-columns: 1fr max-content max-content;
+    padding: 0.5rem 1rem;
+  }
 
   &__logo {
     grid-area: logo;
     margin-right: auto;
-    width: 50px;
+
+    svg {
+      width: 108px;
+      height: auto;
+    }
   }
   &__links {
     grid-area: links;
@@ -28,8 +41,52 @@
     align-items: center;
     list-style: none;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     align-self: center;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      pointer-events: none;
+      transition: max-height var(--transition-duration-ease-in-out);
+      max-height: 0;
+      overflow: hidden;
+      body.init__nav & {
+        pointer-events: initial;
+        max-height: 500px;
+      }
+    }
+
+    li {
+      &:nth-child(1) {
+        @media screen and (max-width: $breakpoint-mobile) {
+          margin-top: 2rem;
+        }
+      }
+      &:last-child {
+        @media screen and (max-width: $breakpoint-mobile) {
+          margin-bottom: 1rem;
+        }
+      }
+      a {
+        transition: color var(--transition-duration-ease-in-out);
+        @media screen and (max-width: $breakpoint-mobile) {
+          display: block;
+
+          font-size: var(--font-size-3);
+          font-weight: 700;
+          line-height: 1.1;
+          text-transform: uppercase;
+          letter-spacing: 0.3em;
+        }
+      }
+
+      &.active,
+      &:hover {
+        a {
+          color: var(--color-4);
+        }
+      }
+    }
   }
 
   &__button {
@@ -38,7 +95,7 @@
     align-self: center;
   }
   &__toggle {
-    grid-area: button;
+    grid-area: toggle;
     display: none;
 
     @media screen and (max-width: $breakpoint-mobile) {
@@ -56,14 +113,11 @@
       .line {
         width: 100%;
         height: 1px;
-        background: var(--color-light);
-        body.index & {
+        background: currentColor;
+
+        body.init__nav & {
           background: var(--color-light);
         }
-        body.init__nav & {
-          background: transparent;
-        }
-
         &:nth-child(2) {
           margin: 4px 0;
           position: relative;
@@ -76,11 +130,7 @@
             width: 100%;
             height: 100%;
             transform: rotate(0);
-            background: var(--color-light);
-            body.init__nav &,
-            body.index & {
-              background: var(--color-light);
-            }
+            background: currentColor;
           }
 
           &::before {
@@ -99,64 +149,14 @@
     }
   }
 
+  body.faq & {
+    color: var(--color-dark);
+  }
+
   &.scrolled,
   body.init__nav &,
   body.has-dark-logo & {
     background: var(--color-light);
     color: var(--color-dark);
-  }
-
-  &.main-nav {
-    @media screen and (max-width: $breakpoint-mobile) {
-      text-align: center;
-
-      ul {
-        width: 100%;
-        order: 2;
-        flex-direction: column;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-in-out;
-        color: var(--color-light);
-        body.init__nav & {
-          max-height: 300px;
-        }
-        li {
-          margin: 0;
-
-          &:not(:last-child) {
-            font-size: var(--font-size-3);
-            font-weight: 500;
-            line-height: 1.2;
-            a {
-              padding: 0.5rem 0;
-              display: block;
-            }
-          }
-
-          &:last-of-type {
-            padding-bottom: 1rem;
-            padding-top: 1rem;
-          }
-        }
-      }
-
-      .nav-toggle {
-      }
-
-      &.scrolled {
-        .nav-toggle {
-          .line {
-            background: var(--color-light);
-            &::before,
-            &::after {
-              background: var(--color-light);
-            }
-          }
-        }
-      }
-    }
   }
 }

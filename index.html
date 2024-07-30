@@ -117,11 +117,24 @@
         </svg>
       </a>
       <ul class="navigation__links">
-        <li><a href="/#introduction">Introduction</a></li>
-        <li><a href="/#residences">Residences</a></li>
-        <li><a href="/#amenities">Amenities</a></li>
-        <li><a href="/#neighborhood">Neighborhood</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
+        <li class="navigation__link" data-attribute-anchor="introduction">
+          <a href="/#introduction">Introduction</a>
+        </li>
+        <li class="navigation__link" data-attribute-anchor="residences">
+          <a href="/#residences">Residences</a>
+        </li>
+        <li class="navigation__link" data-attribute-anchor="amenities">
+          <a href="/#amenities">Amenities</a>
+        </li>
+        <li class="navigation__link" data-attribute-anchor="pricing">
+          <a href="/#pricing">Pricing</a>
+        </li>
+        <li class="navigation__link" data-attribute-anchor="neighborhood">
+          <a href="/#neighborhood">Neighborhood</a>
+        </li>
+        <li class="navigation__link" data-attribute-anchor="faq">
+          <a href="/faq.html">FAQ</a>
+        </li>
       </ul>
       <a
         href="#get-started"
@@ -144,20 +157,22 @@
         <div class="hero__image hero__image--2">
           <img src="/assets/hero-3.webp" alt="Jasper Hunter's Point" />
         </div>
-        <div class="hero__image hero__image--3">
+        <div class="hero__image hero__image--3 scroll__image--parallax --down">
           <img src="/assets/hero-1.webp" alt="Jasper Hunter's Point" />
           <div class="overlay"></div>
         </div>
       </div>
 
       <div class="hero__content">
-        <p class="hero__pre-title">The elements of</p>
+        <p class="hero__pre-title text__size-3">The elements of</p>
         <div class="hero__titles">
           <h1 class="hero__title">Living</h1>
           <h1 class="hero__title">You</h1>
           <h1 class="hero__title">Home</h1>
         </div>
-        <a href="#get-started" class="hero__button button button--primary"
+        <a
+          href="#get-started"
+          class="hero__button button button--primary open-modal"
           ><span>Sign Up Today</span></a
         >
       </div>
@@ -186,7 +201,7 @@
             homes, elevated finishes and exceptional service, all at a fraction
             of the cost.
           </p>
-          <a href="#get-started" class="button button--primary"
+          <a href="#get-started" class="button button--primary open-modal"
             ><span>Get Started</span></a
           >
         </div>
@@ -219,7 +234,12 @@
         <div
           class="introduction__image introduction__image--4 scroll__image--zoom"
         >
-          <img src="/assets/introduction-4.webp" alt="Jasper Hunter's Point" />
+          <div class="scroll__image--parallax">
+            <img
+              src="/assets/introduction-4.webp"
+              alt="Jasper Hunter's Point"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -247,7 +267,7 @@
             class="residences__image scroll__image--full-item-image"
           />
           <div class="residences__content scroll__image--full-item-content">
-            <h3 class="residences__title">Kitchen</h3>
+            <h2 class="residences__title">Kitchen</h2>
             <p class="residences__text">
               The kitchen is the heart of the home, and at Jasper, it’s a
               beautiful one. The open kitchens are designed for entertaining,
@@ -263,7 +283,7 @@
             class="residences__image scroll__image--full-item-image"
           />
           <div class="residences__content scroll__image--full-item-content">
-            <h3 class="residences__title">Bathroom</h3>
+            <h2 class="residences__title">Bathroom</h2>
             <p class="residences__text">
               The living room is the perfect place to relax and unwind. With
               large windows that let in plenty of natural light, and a layout
@@ -279,7 +299,7 @@
             class="residences__image scroll__image--full-item-image"
           />
           <div class="residences__content scroll__image--full-item-content">
-            <h3 class="residences__title">Living Room</h3>
+            <h2 class="residences__title">Living Room</h2>
             <p class="residences__text">
               The living room is the perfect place to relax and unwind. With
               large windows that let in plenty of natural light, and a layout
@@ -576,19 +596,15 @@
       <div class="pricing__charts">
         <div class="pricing__charts--content scroll__text--load">
           <p class="pricing__charts--title text__size-4">
-            Save for your future. Secure your rent today.
+            Secure your rent today.
           </p>
           <p class="pricing__charts--text">
             Experience the stability of a rent-stabilized apartment and a
-            significantly lower monthly rent. Unlike a market rate apartment
-            you’re guaranteed that your rent will remain stable, saving you
-            money in the long-run.
+            significantly lower monthly rent. You’re guaranteed that your rent
+            will remain stable, saving you money in the long-run.
           </p>
-          <a href="#get-started" class="btn --secondary open-modal">
-            <div class="btn__inner">
-              <span>Sign Up</span>
-              <span>Sign Up</span>
-            </div>
+          <a href="#get-started" class="button button--secondary open-modal">
+            <span>Sign Up</span>
           </a>
           <ul class="legend-items">
             <li>Market Rate</li>
