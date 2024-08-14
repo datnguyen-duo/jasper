@@ -27,28 +27,28 @@ body {
 
 h1,
 .text__size-1 {
+  font-family: var(--font-2);
   font-size: var(--font-size-1);
-  font-weight: 450;
-  text-transform: uppercase;
-  line-height: 1.1;
-  letter-spacing: -0.08em;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 1.15;
   text-wrap: balance;
 }
 
 h2,
 .text__size-2 {
+  font-family: var(--font-2);
   font-size: var(--font-size-2);
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 400;
+  text-transform: capitalize;
   line-height: 1.1;
-  letter-spacing: 0.15em;
   text-wrap: balance;
 }
 
 h3,
 .text__size-3 {
   font-size: var(--font-size-3);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -57,15 +57,15 @@ h3,
 h4,
 .text__size-4 {
   font-size: var(--font-size-4);
-  font-weight: 450;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 h5,
 .text__size-5 {
-  font-size: var(--font-size-5);
-  font-weight: 700;
+  font-size: var(--font-size-6);
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -104,11 +104,11 @@ button {
   display: inline-block;
   text-transform: uppercase;
   cursor: pointer;
-  padding: 0.7rem 2rem;
+  padding: 0.9rem 2rem;
   transition: padding var(--transition-duration-ease-in-out);
   border-radius: var(--border-radius);
   line-height: 1;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-6);
   font-weight: 500;
   letter-spacing: 0.2em;
   @media screen and (max-width: $breakpoint-mobile) {
@@ -176,6 +176,14 @@ form {
     border-radius: 0;
     &::placeholder {
       opacity: 1;
+      color: var(--color-light);
+      @extend .text__size-5;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
     }
   }
 
@@ -196,6 +204,7 @@ form {
     gap: 1rem;
     @media screen and (max-width: $breakpoint-mobile) {
       flex-direction: column;
+      align-items: center;
     }
     label {
       position: relative;
@@ -278,7 +287,7 @@ table {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .scroll {
@@ -291,13 +300,19 @@ table {
     }
 
     &--full {
+      // width: 150svh;
+      // height: 100svh;
       width: 100%;
-      height: 100svh;
-      padding-top: $nav-height;
-      display: grid;
-      grid-template-areas: "a";
-      color: var(--color-light);
-
+      // padding-top: $nav-height;
+      // display: grid;
+      // grid-template-areas: "a";
+      margin: auto;
+      @media screen and (max-width: $breakpoint-mobile) {
+        display: flex;
+        height: auto;
+        grid-template-areas: unset;
+        flex-direction: column;
+      }
       &-item {
         position: relative;
         grid-area: a;
@@ -307,38 +322,41 @@ table {
         overflow: hidden;
         text-align: center;
 
-        &:not(:first-child) {
-          clip-path: inset(100% 0% 0% 0%);
-          z-index: 2;
+        @media screen and (max-width: $breakpoint-mobile) {
+          padding: 6rem 2rem;
+        }
+        &:first-child {
+          @media screen and (max-width: $breakpoint-mobile) {
+            padding-top: 10rem;
+          }
         }
 
+        // &:not(:first-child) {
+        //   clip-path: inset(100% 0% 0% 0%);
+        //   z-index: 2;
+
+        //   @media screen and (max-width: $breakpoint-mobile) {
+        //     clip-path: unset;
+        //   }
+        // }
+
         &-image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 140%;
-          object-fit: cover;
+          // object-fit: cover;
         }
 
         &-content {
-          position: relative;
           max-width: 50%;
           text-wrap: balance;
           margin: 0 auto;
           padding-bottom: $nav-height;
-
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           @media screen and (max-width: $breakpoint-mobile) {
             max-width: 100%;
             padding: 0 var(--gutter);
           }
-        }
-
-        .marquee {
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 2;
         }
       }
     }

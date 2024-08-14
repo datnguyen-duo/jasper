@@ -1,21 +1,23 @@
-// .template__default {
-//   max-width: 900px;
-//   margin: 0 auto;
-//   padding: calc(#{$spacer} * 2) $gutter $spacer;
+.template__default {
+  margin: 0 auto;
+  padding: var(--spacer) var(--gutter) var(--spacer-sm);
 
-//   h3 {
-//     margin: 2em 0 0.5em;
-//   }
+  h3 {
+    margin: 2em 0 0.5em;
+  }
 
-//   p {
-//     margin-bottom: 1em;
-//   }
+  p {
+    margin-bottom: 1em;
+  }
 
-//   a {
-//     text-decoration: underline;
-//   }
-// }
+  a {
+    text-decoration: underline;
+  }
+}
 
-// #credits {
-//   text-align: center;
-// }
+#credits {
+  text-align: center;
+}
+#privacy {
+  max-width: 1000px;
+}

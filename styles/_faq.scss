@@ -2,7 +2,7 @@
   background-color: var(--color-2);
 
   &__hero {
-    padding: var(--spacer) var(--gutter) var(--spacer);
+    padding: var(--spacer) var(--gutter) var(--spacer-sm);
     text-align: center;
     position: relative;
   }
@@ -137,7 +137,7 @@
               cursor: pointer;
               padding: 1rem 4rem 1rem 2rem;
               @media screen and (max-width: $breakpoint-mobile) {
-                padding: 1rem 2rem 1rem 2rem;
+                padding: 1rem 4rem 1rem 1rem;
               }
             }
 

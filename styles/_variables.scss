@@ -1,20 +1,23 @@
 :root {
   --font-1: "apertura", sans-serif;
+  --font-2: "the-seasons", sans-serif;
 
-  --color-1: #2d3434;
-  --color-2: #b6b2a3;
-  --color-3: #f2f0e9;
-  --color-4: #bb533a;
-  --color-5: #dea57f;
+  --color-1: #000e10;
+  --color-2: #f1ece5;
+  --color-3: #162c53;
+  --color-4: #a13a32;
+  --color-5: #1b413e;
   --color-6: #999d83;
-  --color-light: var(--color-3);
+
+  --color-light: var(--color-2);
   --color-dark: var(--color-1);
 
-  --font-size-1: clamp(84px, 14vw, 270px);
-  --font-size-2: clamp(30px, 3.33vw, 64px);
+  --font-size-1: clamp(84px, 9.3vw, 180px);
+  --font-size-2: clamp(30px, 4.68vw, 90px);
   --font-size-3: clamp(18px, 1.25vw, 24px);
-  --font-size-4: clamp(16px, 0.9375vw, 18px);
+  --font-size-4: clamp(18px, 1.25vw, 24px);
   --font-size-5: 14px;
+  --font-size-6: 12px;
 
   --spacer: clamp(4rem, 8vw, 154px);
   --spacer-sm: calc(var(--spacer) / 2);
