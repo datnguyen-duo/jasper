@@ -5,6 +5,10 @@
     padding: var(--spacer) var(--gutter) var(--spacer-sm);
     text-align: center;
     position: relative;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      padding-top: calc(var(--spacer-lg) * 1.5);
+    }
   }
 
   &__container {
@@ -150,7 +154,7 @@
                 padding: 0 2rem 1rem;
                 opacity: 0;
                 transition: opacity 0.2s 0s ease-in-out;
-
+                overflow: auto;
                 ul {
                   padding-left: 1em;
                   li {
@@ -185,7 +189,7 @@
                 opacity: 0;
               }
               .answer {
-                max-height: 800px;
+                max-height: 1200px;
                 transition: max-height 0.2s 0s ease-in-out;
                 .wrapper {
                   opacity: 1;

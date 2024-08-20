@@ -438,6 +438,7 @@ gsap.registerPlugin(ScrollTrigger);
           preTitle = section.querySelector(".hero__pre-title"),
           subTitle = section.querySelector(".hero__sub-title"),
           description = section.querySelector(".hero__description"),
+          disclaimer = section.querySelector(".hero__disclaimer"),
           button = section.querySelector(".hero__button"),
           footer = section.querySelector(".hero__footer"),
           navigation = document.querySelector(".navigation"),
@@ -568,6 +569,14 @@ gsap.registerPlugin(ScrollTrigger);
         );
         tl.from(
           description,
+          {
+            opacity: 0,
+            ease: easeInOut,
+          },
+          "<"
+        );
+        tl.from(
+          disclaimer,
           {
             opacity: 0,
             ease: easeInOut,

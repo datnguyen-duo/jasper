@@ -2,6 +2,9 @@
   margin: 0 auto;
   padding: var(--spacer) var(--gutter) var(--spacer-sm);
 
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-top: calc(var(--spacer-lg) * 1.5);
+  }
   h3 {
     margin: 2em 0 0.5em;
   }
