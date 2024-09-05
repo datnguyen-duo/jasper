@@ -147,7 +147,7 @@ section {
   &__footer {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     background-color: var(--color-light);
     z-index: 1;
     @media screen and (max-width: $breakpoint-mobile) {
