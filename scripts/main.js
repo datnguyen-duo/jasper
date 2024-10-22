@@ -584,7 +584,7 @@ gsap.registerPlugin(ScrollTrigger);
           "<"
         );
 
-        const targetDate = new Date("2024-12-19T00:00:00-05:00").getTime();
+        const targetDate = new Date("2024-12-21T00:00:00-05:00").getTime();
 
         const countdownInterval = setInterval(function () {
           const now = new Date().getTime();
@@ -600,7 +600,7 @@ gsap.registerPlugin(ScrollTrigger);
 
           let countdownText = `Time Left: `;
           if (months > 0) {
-            countdownText += `${months} Months, `;
+            countdownText += `${months} Month, `;
           }
           countdownText += `${remainingDays} Days, ${hours} Hours`;
 
