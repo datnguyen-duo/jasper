@@ -168,60 +168,60 @@ gsap.registerPlugin(ScrollTrigger);
 })();
 
 // Neighborhood
-(function () {
-  window.addEventListener("load", function () {
-    const neighborhoodPin = document.querySelector(
-      ".neighborhood__pin-container"
-    );
-    if (neighborhoodPin) {
-      const imageSet = document.querySelectorAll(".neighborhood__pin-image"),
-        content = document.querySelectorAll(".neighborhood__pin-content-inner");
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: neighborhoodPin,
-          start: "top top",
-          end: window.innerWidth > 768 ? "+=200%" : "+=100%",
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
+// (function () {
+//   window.addEventListener("load", function () {
+//     const neighborhoodPin = document.querySelector(
+//       ".neighborhood__pin-container"
+//     );
+//     if (neighborhoodPin) {
+//       const imageSet = document.querySelectorAll(".neighborhood__pin-image"),
+//         content = document.querySelectorAll(".neighborhood__pin-content-inner");
+//       var tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: neighborhoodPin,
+//           start: "top top",
+//           end: window.innerWidth > 768 ? "+=200%" : "+=100%",
+//           scrub: true,
+//           pin: true,
+//           anticipatePin: 1,
+//         },
+//       });
 
-      imageSet.forEach((set, i) => {
-        const images = set.querySelectorAll("img");
-        if (i === 0) return;
-        tl.to(set, {
-          clipPath: "inset(0% 0% 0% 0%)",
-          ease: easeNone,
-        });
-        tl.from(
-          images[0],
-          {
-            scale: 1.2,
-            ease: easeNone,
-          },
-          "<"
-        );
-        tl.from(
-          images[1],
-          {
-            scale: 1.2,
-            ease: easeNone,
-          },
-          "<"
-        );
-        tl.to(
-          content[i],
-          {
-            opacity: 1,
-            duration: 0.2,
-          },
-          "<50%"
-        );
-      });
-    }
-  });
-})();
+//       imageSet.forEach((set, i) => {
+//         const images = set.querySelectorAll("img");
+//         if (i === 0) return;
+//         tl.to(set, {
+//           clipPath: "inset(0% 0% 0% 0%)",
+//           ease: easeNone,
+//         });
+//         tl.from(
+//           images[0],
+//           {
+//             scale: 1.2,
+//             ease: easeNone,
+//           },
+//           "<"
+//         );
+//         tl.from(
+//           images[1],
+//           {
+//             scale: 1.2,
+//             ease: easeNone,
+//           },
+//           "<"
+//         );
+//         tl.to(
+//           content[i],
+//           {
+//             opacity: 1,
+//             duration: 0.2,
+//           },
+//           "<50%"
+//         );
+//       });
+//     }
+//   });
+// })();
 
 // Amenities
 (function () {
@@ -271,51 +271,6 @@ gsap.registerPlugin(ScrollTrigger);
     // } else {
     //   document.body.classList.add("init__pin");
     // }
-  });
-})();
-
-/*	-----------------------------------------------------------------------------
-    MARQUEE
---------------------------------------------------------------------------------- */
-
-(function () {
-  window.addEventListener("load", function () {
-    const marquees = document.querySelectorAll(".marquee");
-
-    if (marquees) {
-      marquees.forEach((marquee) => {
-        const marqueeInner = marquee.querySelector(".marquee__inner"),
-          marqueeContent = marquee.querySelector(".marquee__content");
-        let marqueeWidth = 0;
-        let animation;
-
-        const calculateMarqueeWidth = () => {
-          marqueeWidth = marqueeContent.offsetWidth;
-          marqueeInner.style.width = `${marqueeWidth}px`;
-        };
-
-        const startMarqueeAnimation = () => {
-          if (animation) {
-            animation.kill();
-          }
-          gsap.set(marqueeInner, { x: 0 });
-          animation = gsap.to(marqueeInner, {
-            x: () => -marqueeWidth,
-            duration: 20,
-            repeat: -1,
-            ease: "none",
-          });
-        };
-
-        calculateMarqueeWidth();
-        startMarqueeAnimation();
-
-        window.addEventListener("resize", () => {
-          calculateMarqueeWidth();
-          startMarqueeAnimation();
-        });
-      });
-    }
   });
 })();
 
@@ -708,7 +663,7 @@ gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.create({
       trigger: document.body,
       start: "5px top",
-      end: "101% bottom",
+      end: "+=100000",
       toggleClass: { targets: ".navigation", className: "scrolled" },
     });
     document.querySelectorAll(".navigation a").forEach((link) => {
