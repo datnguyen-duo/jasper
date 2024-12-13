@@ -538,6 +538,31 @@ gsap.registerPlugin(ScrollTrigger);
           },
           "<"
         );
+
+        function updateCountdown() {
+          const countdownElement = document.getElementById("countdown");
+          const closingDate = new Date(
+            "December 21, 2024 23:59:59 GMT-0500"
+          ).getTime();
+          const now = new Date().getTime();
+          const timeLeft = closingDate - now;
+
+          if (timeLeft > 0) {
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+              (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor(
+              (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            countdownElement.innerHTML = `Applications closing in ${days} days, ${hours} hours, and ${minutes} minutes`;
+          } else {
+            countdownElement.innerHTML = "Applications are now closed!";
+          }
+        }
+
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
       });
     }
   });

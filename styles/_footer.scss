@@ -59,6 +59,9 @@
         justify-content: center;
       }
       li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         &:not(:last-child) {
           margin-right: 1rem;
           padding-right: 1rem;
