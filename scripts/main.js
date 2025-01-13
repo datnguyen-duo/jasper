@@ -611,26 +611,26 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Modal
 
-(function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".open-modal").forEach((btn) => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.body.classList.add("init__modal");
-      });
-    });
-    document.querySelector("#modal").addEventListener("click", function (e) {
-      if (e.target.id == "modal") {
-        document.body.classList.remove("init__modal");
-      }
-    });
-    document
-      .querySelector("#modal .close")
-      .addEventListener("click", function () {
-        document.body.classList.remove("init__modal");
-      });
-  });
-})();
+// (function () {
+//   document.addEventListener("DOMContentLoaded", function () {
+//     document.querySelectorAll(".open-modal").forEach((btn) => {
+//       btn.addEventListener("click", function (e) {
+//         e.preventDefault();
+//         document.body.classList.add("init__modal");
+//       });
+//     });
+//     document.querySelector("#modal").addEventListener("click", function (e) {
+//       if (e.target.id == "modal") {
+//         document.body.classList.remove("init__modal");
+//       }
+//     });
+//     document
+//       .querySelector("#modal .close")
+//       .addEventListener("click", function () {
+//         document.body.classList.remove("init__modal");
+//       });
+//   });
+// })();
 
 // FAQ
 (function () {
