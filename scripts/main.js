@@ -539,7 +539,6 @@ gsap.registerPlugin(ScrollTrigger);
           "<"
         );
 
-<<<<<<< HEAD
         function updateCountdown() {
           const countdownElement = document.getElementById("countdown");
           const closingDate = new Date(
@@ -564,37 +563,6 @@ gsap.registerPlugin(ScrollTrigger);
 
         setInterval(updateCountdown, 60000);
         updateCountdown();
-=======
-        const targetDate = new Date("2024-12-21T00:00:00-05:00").getTime();
-
-        const countdownInterval = setInterval(function () {
-          const now = new Date().getTime();
-          const distance = targetDate - now;
-
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          );
-
-          const months = Math.floor(days / 30);
-          const remainingDays = days % 30;
-
-          let countdownText = `Time Left: `;
-          if (months > 0) {
-            countdownText += `${months} Month, `;
-          }
-          countdownText += `${remainingDays} Days, ${hours} Hours`;
-
-          document.getElementById("countdown").innerHTML = countdownText;
-
-          if (distance < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById("countdown").innerHTML =
-              "Applications are now closed!";
-            document.querySelector(".hero__footer").classList.add("completed");
-          }
-        }, 1000);
->>>>>>> fa2a4207a566ae4fb783e55f5f796a20fe5c6fcd
       });
     }
   });
